@@ -1,0 +1,30 @@
+{
+  "name": "fresh-theme-positive",
+  "version": "0.1.0",
+  "description": "A dynamic two-color FRESH resume theme for technical professionals.",
+  "main": "theme.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fresh-standard/fresh-theme-positive.git"
+  },
+  "keywords": [
+    "resume",
+    "CV",
+    "FRESH",
+    "HackMyResume",
+    "FluentCV",
+    "employment",
+    "FRESH Resume Schema",
+    "FRESCA",
+    "career"
+  ],
+  "author": "Mackey James <hacksalot@indevious.com> (https://indevious.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fresh-standard/fresh-theme-positive/issues"
+  },
+  "homepage": "https://github.com/fresh-standard/fresh-theme-positive#readme"
+}

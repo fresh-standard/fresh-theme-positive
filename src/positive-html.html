@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ r.name }}</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    {{{styleSheet "positive-html.css"}}}
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>{{{initialWords r.name }}} <span style="color: #C00000;">{{{lastWord r.name }}}</span></h1>
+        <span class="label">{{{ r.info.label }}}</span>
+        <p id="contact">
+          {{#if r.contact.email}}<span class="email"><a href="mailto:{{ RAW.contact.email }}">{{{ r.contact.email }}}</a></span>{{/if}}
+          {{#if r.contact.phone}}<span class="phone">{{{ r.contact.phone }}}</span>{{/if}}
+          {{#if r.contact.website}}<span class="website"><a href="{{ RAW.contact.website }}">{{{ r.contact.website }}}</a></span>{{/if}}
+        </p>
+      </header>
+
+
+      {{#has "info.brief"}}
+      <section id="summary">
+        {{{ r.info.brief }}}
+      </section>
+      {{/has}}
+
+
+      {{!<!--
+        Use predefined global partials for the other sections.
+
+        The "inline" bit before each section allows us to pass a custom heading
+        icon into the global partial. For this theme, we're using Font Awesome.
+      -->}}
+
+      {{#*inline "icon-skills"}}<span class="fa fa-lg fa-code"></span>{{/inline}}
+      {{> section/skills _icon="icon-skills"}}
+
+      {{#*inline "icon-employment"}}<span class="fa fa-lg fa-building"></span>{{/inline}}
+      {{> employment _icon="icon-employment"}}
+
+      {{#*inline "icon-projects"}}<span class="fa fa-lg fa-star"></span>{{/inline}}
+      {{> section/projects _icon="icon-projects"}}
+
+      {{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
+      {{> education _icon="icon-education"}}
+
+      {{#*inline "icon-affiliation"}}<span class="fa fa-lg fa-share-alt"></span>{{/inline}}
+      {{> section/affiliation _icon="icon-affiliation"}}
+
+      {{#*inline "icon-service"}}<span class="fa fa-lg fa-child"></span>{{/inline}}
+      {{> service _icon="icon-service"}}
+
+      {{#*inline "icon-samples"}}<span class="fa fa-lg fa-share"></span>{{/inline}}
+      {{> section/samples _icon="icon-samples"}}
+
+      {{#*inline "icon-writing"}}<span class="fa fa-lg fa-pencil"></span>{{/inline}}
+      {{> section/writing _icon="icon-writing"}}
+
+      {{#*inline "icon-reading"}}<span class="fa fa-lg fa-book"></span>{{/inline}}
+      {{> section/reading _icon="icon-reading"}}
+
+      {{#*inline "icon-recognition"}}<span class="fa fa-lg fa-trophy"></span>{{/inline}}
+      {{> section/recognition _icon="icon-recognition"}}
+
+      {{#*inline "icon-speaking"}}<span class="fa fa-lg fa-users"></span>{{/inline}}
+      {{> section/speaking _icon="icon-speaking"}}
+
+      {{#*inline "icon-testimonials"}}<span class="fa fa-lg fa-quote-left"></span>{{/inline}}
+      {{> testimonials _icon="icon-testimonials"}}
+
+      {{#if r.references}}
+      {{#section "references"}}
+      <section id="references">
+        {{#if r.contact.email}}
+        <p><a href="mailto:{{{ r.contact.email }}}">References available on request</a></p>
+        {{else}}
+        <p>References available on request</p>
+        {{/if}}
+      </section>
+      {{/section}}
+      {{/if}}
+
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Word.Document"?>
+<w:wordDocument xmlns:aml="http://schemas.microsoft.com/aml/2001/core" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wsp="http://schemas.microsoft.com/office/word/2003/wordml/sp2" xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core" w:macrosPresent="no" w:embeddedObjPresent="no" w:ocxPresent="no" xml:space="preserve">
+  <w:ignoreSubtree w:val="http://schemas.microsoft.com/office/word/2003/wordml/sp2"/>
+  {{> doc-properties }}
+  {{> doc-fonts }}
+  {{> doc-lists }}
+  {{> doc-styles }}
+  {{> doc-pr }}
+  <w:body>
+    <wx:sect>
+      <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="007D096C" wsp:rsidP="00C146CA">
+        <w:pPr>
+          <w:pStyle w:val="Title"/>
+          <w:tabs>
+            <w:tab w:val="right" w:pos="9360"/>
+          </w:tabs>
+        </w:pPr>
+        <w:r>
+          <w:t>{{initialWords r.name }} </w:t>
+        </w:r>
+        <w:r>
+          <w:rPr>
+            <w:color w:val="C00000"/>
+          </w:rPr>
+          <w:t>{{lastWord r.name }}</w:t>
+        </w:r>
+        <w:r>
+          <w:tab/>
+        </w:r>
+        <w:r>
+          <w:rPr>
+            <w:color w:val="DADADA"/>
+          </w:rPr>
+          <w:t>{{ r.info.label }}</w:t>
+        </w:r>
+      </w:p>
+      <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="00505903" wsp:rsidP="00C146CA">
+        <w:pPr>
+          <w:rPr>
+            <w:sz-cs w:val="20"/>
+          </w:rPr>
+          <w:jc w:val="right"/>
+        </w:pPr>
+        <w:hlink w:dest="mailto:{{ r.contact.email }}">
+          <w:r wsp:rsidRPr="003876BF">
+            <w:rPr>
+              <w:rStyle w:val="Hyperlink"/>
+              <w:sz w:val="16"/>
+            </w:rPr>
+            <w:t>{{ r.contact.email }}</w:t>
+          </w:r>
+        </w:hlink>
+        <w:r>
+          <w:rPr>
+            <w:sz w:val="16"/>
+          </w:rPr>
+          <w:t> - </w:t>
+        </w:r>
+        <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0">
+          <w:rPr>
+            <w:sz w:val="16"/>
+          </w:rPr>
+          <w:t>{{ r.contact.phone }}</w:t>
+        </w:r>
+        <w:r>
+          <w:rPr>
+            <w:sz w:val="16"/>
+          </w:rPr>
+          <w:t> - </w:t>
+        </w:r>
+        <w:hlink w:dest="{{ r.contact.website }}">
+          <w:r wsp:rsidRPr="003876BF">
+            <w:rPr>
+              <w:rStyle w:val="Hyperlink"/>
+              <w:sz w:val="16"/>
+            </w:rPr>
+            <w:t>{{ r.contact.website }}</w:t>
+          </w:r>
+        </w:hlink>
+      </w:p>
+      {{#has "info.brief"}}
+      <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00A210E1">
+        <w:pPr>
+          <w:pStyle w:val="Summary"/>
+        </w:pPr>
+        {{{wpml r.info.brief true }}}
+      </w:p>
+      {{/has}}
+      {{#section "skills"}}{{> skills }}{{/section}}
+
+      {{#*inline "header-employment"}}
+      {{> header-icon _title="EMPLOYMENT" _section="employment" _icon="pict/emp" }}
+      {{/inline}}
+      {{#section "employment"}}{{> section/employment }}{{/section}}
+
+      {{#*inline "header-projects"}}
+      {{> header-icon _title="PROJECTS" _section="projects" _icon="pict/star" }}
+      {{/inline}}
+      {{#section "projects"}}{{> section/projects }}{{/section}}
+
+      {{#*inline "header-governance"}}
+      {{> header-icon _title="GOVERNANCE" _section="governance" _icon="pict/justice-scales" }}
+      {{/inline}}
+      {{#section "governance"}}{{> section/governance }}{{/section}}
+
+      {{#*inline "header-affiliation"}}
+      {{> header-icon _title="AFFILIATION" _section="affiliation" _icon="pict/share-alt" }}
+      {{/inline}}
+      {{#section "affiliation"}}{{> section/affiliation }}{{/section}}
+
+      {{#*inline "header-education"}}
+      {{> header-icon _title="EDUCATION" _section="education" _icon="pict/edu" }}
+      {{/inline}}
+      {{#section "education"}}{{> section/education }}{{/section}}
+
+      {{#*inline "header-service"}}
+      {{> header-icon _title="SERVICE" _section="service" _icon="pict/srv" }}
+      {{/inline}}
+      {{#section "service"}}{{> section/service }}{{/section}}
+
+      {{#*inline "header-writing"}}
+      {{> header-icon _title="WRITING" _section="writing" _icon="pict/wri" }}
+      {{/inline}}
+      {{#section "writing"}}{{> section/writing }}{{/section}}
+
+      {{#*inline "header-reading"}}
+      {{> header-icon _title="READING" _section="reading" _icon="pict/book" }}
+      {{/inline}}
+      {{#section "reading"}}{{> section/reading }}{{/section}}
+
+      {{#*inline "header-recognition"}}
+      {{> header-icon _title="RECOGNITION" _section="recognition" _icon="pict/rec" }}
+      {{/inline}}
+      {{#section "recognition"}}{{> section/recognition }}{{/section}}
+
+      {{#*inline "header-speaking"}}
+      {{> header-icon _title="SPEAKING" _section="speaking" _icon="pict/group" }}
+      {{/inline}}
+      {{#section "speaking"}}{{> section/speaking }}{{/section}}
+
+      {{#*inline "header-references"}}
+      {{> header-icon _title="REFERENCES" _section="references" _icon="pict/thumbs-up" }}
+      {{/inline}}
+      {{#section "references"}}{{> section/references }}{{/section}}
+
+      {{#*inline "header-interests"}}
+      {{> header-icon _title="INTERESTS" _section="interests" _icon="pict/bicycle" }}
+      {{/inline}}
+      {{#section "interests"}}{{> section/interests }}{{/section}}
+
+      <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
+        <w:pgSz w:w="12240" w:h="15840"/>
+        <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
+        <w:cols w:space="720"/>
+        <w:docGrid w:line-pitch="360"/>
+      </w:sectPr>
+    </wx:sect>
+  </w:body>
+</w:wordDocument>
